@@ -1,0 +1,30 @@
+{
+  "name": "generator-teonet-node",
+  "version": "0.0.1",
+  "description": "Teonet node application",
+  "main": "./app/index.js",
+  "scripts": {
+    "test": "test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.ksproject.org/teonet/generator-teonet-node.git"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "teonet",
+    "network"
+  ],
+  "files": [
+    "generators"
+  ],
+  "dependencies": {
+    "teonet": "0.0.3",
+    "yeoman-generator": "^0.24.1"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "author": "Kirill Scherba <kirill@scherba.ru>",
+  "license": "MIT"
+}
