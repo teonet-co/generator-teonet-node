@@ -23,7 +23,7 @@ Install the Yeoman and bower:
 
     npm install -g yo bower
 
-### Install teonet library (under Linux or Mac OS)
+### Install teonet library
 
 ### Ubuntu
 
@@ -60,18 +60,26 @@ Update repositories database:
 
     node install -g generator-teonet-node
 
+## Generate new teonet-node application
 
-## *Some teonet documentation
+    yo teonet-node
+  
 
-### Install teonet library under Linux
+<hr>
+
+## *Notes
+
+### Some teonet documentation
+
+#### Install teonet library under Linux
 
 Some additional info to install [Teonet library from repository](https://gitlab.ksproject.org/teonet/teonet/blob/master/README.md#install-from-repositories-notes) readme file
 
 
-### Teonet developer documentation:  
+#### Teonet developer documentation:  
 http://repo.ksproject.org/docs/teonet/
 
 
-### Teonet events:  
+#### Teonet events:  
 http://repo.ksproject.org/docs/teonet/ev__mgr_8h.html#ad7b9bff24cb809ad64c305b3ec3a21fe
 
