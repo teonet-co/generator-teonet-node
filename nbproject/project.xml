@@ -6,9 +6,17 @@
             <name>generator-teonet-node</name>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>adduser</word>
+            <word>deb</word>
+            <word>dev</word>
+            <word>libteonet</word>
             <word>linux</word>
+            <word>noninfringement</word>
+            <word>npm</word>
             <word>readme</word>
+            <word>sudo</word>
             <word>teonet</word>
+            <word>teovpn</word>
             <word>ubuntu</word>
         </spellchecker-wordlist>
     </configuration>

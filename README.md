@@ -58,7 +58,7 @@ Update repositories database:
 
 ## Install this generator
 
-    node install -g generator-teonet-node
+    npm install -g generator-teonet-node
 
 ## Generate new teonet-node application
 
@@ -67,7 +67,7 @@ Update repositories database:
 
 <hr>
 
-## *Notes
+## *Developer Notes
 
 ### Some teonet documentation
 
@@ -82,4 +82,19 @@ http://repo.ksproject.org/docs/teonet/
 
 #### Teonet events:  
 http://repo.ksproject.org/docs/teonet/ev__mgr_8h.html#ad7b9bff24cb809ad64c305b3ec3a21fe
+
+
+### Publish project to NPM
+
+If you haven't already set your NPM author info, now you should:
+
+    npm set init.author.name "Your Name"
+    npm set init.author.email "you@example.com"
+    npm set init.author.url "http://yourblog.com"
+    
+    npm adduser
+
+Publish project to NPM:
+
+    npm publish ./
 

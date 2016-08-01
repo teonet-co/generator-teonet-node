@@ -1,6 +1,6 @@
 {
   "name": "generator-teonet-node",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Teonet node application",
   "main": "./app/index.js",
   "scripts": {
