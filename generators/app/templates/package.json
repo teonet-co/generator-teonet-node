@@ -24,6 +24,6 @@
   "devDependencies": {
     "mocha": "*"
   },
-  "author": "Kirill Scherba <kirill@scherba.ru>",
+  "author": "<%= author %> <<%= email %>>",
   "license": "<%= license %>"
 }

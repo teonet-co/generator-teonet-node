@@ -1,7 +1,7 @@
 /* 
  * The MIT License
  *
- * Copyright 2016 Kirill Scherba <kirill@scherba.ru>.
+ * Copyright 2016 <%= author %> <<%= email %>>.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,13 +22,10 @@
  * THE SOFTWARE.
  */
 
-// Additional materials:
-// https://github.com/kevana/ui-for-docker - An unofficial web interface for Docker, formerly known as DockerUI
-
 'use strict';
 
 var teonet = require('teonet/teonet');
-var logger = teonet.syslog('host', module.filename);
+var logger = teonet.syslog('<%= name %>', module.filename);
 
 /**
  * This application API commands
@@ -41,7 +38,7 @@ var _ke; // right pointer to ksnetEvMgrClass
 var peers = Object.create(null);
 
 // Application welcome message
-console.log("Teohost ver. 0.0.1, based on teonet ver. " + teonet.version());
+console.log("<%= name_capitalize %> ver. <%= version %>, based on teonet ver. " + teonet.version());
 
 // Start teonet module
 teo_main();
@@ -66,7 +63,7 @@ function teoEventCb(ke, ev, data, data_len, user_data) {
         // EV_K_STARTED #0 Calls immediately after event manager starts
         case teonet.ev.EV_K_STARTED:
             _ke = ke;
-            console.log('Teohost started .... ');
+            console.log('<%= name_capitalize %> started .... ');
             break;
 
         // EV_K_CONNECTED #3 New peer connected to host event
@@ -103,7 +100,7 @@ function teoEventCb(ke, ev, data, data_len, user_data) {
             }
             break;
 
-        // EV_K_USER #129
+        // EV_K_USER #11 User press A hotkey
         case teonet.ev.EV_K_USER:            
             break;
 
@@ -126,10 +123,10 @@ function teo_main() {
     var ke = teonet.init(teoEventCb, 3);
 
     // Set application type
-    teonet.setAppType(ke, "teo-host");
+    teonet.setAppType(ke, "<%= name %>");
 
     // Set application version
-    teonet.setAppVersion(ke, '0.0.1');
+    teonet.setAppVersion(ke, '<%= version %>');
 
     // Start Timer event 
     teonet.setCustomTimer(ke, 5.000);
@@ -138,5 +135,5 @@ function teo_main() {
     teonet.run(ke);
 
     // Show exit message
-    console.log("Teohost application initialization finished ...");
+    console.log("<%= name_capitalize %> application initialization finished ...");
 }

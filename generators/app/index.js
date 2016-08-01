@@ -32,8 +32,6 @@ module.exports = generators.Base.extend({
     
   prompting: function () {
       
-    var done = this.async();
-
     // Have Yeoman greet the user.
     this.log(yosay(
         'This is the awesome and amazing ' + chalk.red('TEONET-NODE') + ' generator!'
@@ -51,7 +49,8 @@ module.exports = generators.Base.extend({
         type: 'input',
         name: 'version',
         message: 'This project version',
-        default: "0.0.1"
+        default: "0.0.1",
+        store: true
     },
     {
         type: 'input',
@@ -67,64 +66,95 @@ module.exports = generators.Base.extend({
     },
     {
         type: 'input',
+        name: 'author',
+        message: 'Author name',
+        default: "Application Author",
+        store: true
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Author email',
+        default: "email@example.com",
+        store: true
+    },
+    {
+        type: 'input',
         name: 'license',
         message: 'How would you love to license the project?',
-        default: "MIT"
+        default: "MIT",
+        store: true
     }];
 
-    this.prompt(prompts, function (props) {
+    return this.prompt(prompts).then(function (props) {
         
+        function capitalize(string) {
+          return string.charAt(0).toUpperCase() + string.slice(1);
+        };
+
         this.props = props;
+        this.props.name_capitalize = capitalize(this.props.name);
+
         // To access props later use this.props.name;
 
-        done();
     }.bind(this));
     
   },
   
-//  method1: function () {
-//    console.log('Method 1 just ran');
-//  },
-//  method2: function () {
-//    console.log('Method 2 just ran');
-//  },
-
-
   writing: {  
       
     // Copy the confuguration files
     config: function () {
-
-      //console.log('Copy the confuguration files');     
+        
       this.fs.copyTpl(
-          this.templatePath('package.json'),
-          this.destinationPath('package.json'), {
-              name: "teonet-node", //this.props.name,
-              version: "", //this.props.version,
-              description: "", //this.props.description,
-              repository: "", //this.props.repository,
-              license: "" //this.props.license
-          }
+        this.templatePath('package.json'),
+        this.destinationPath('package.json'), {
+            name: this.props.name,
+            version: this.props.version,
+            description: this.props.description,
+            repository: this.props.repository,
+            author: this.props.author,
+            email: this.props.email,
+            license: this.props.license
+        }
       ); 
       this.fs.copyTpl(
-                  this.templatePath('bower.json'),
-                  this.destinationPath('bower.json')
+        this.templatePath('bower.json'),
+        this.destinationPath('bower.json'), {
+            name: this.props.name,
+            version: this.props.version
+        }
       ); 
-      this.fs.copy(
+      this.fs.copyTpl(
           this.templatePath('LICENSE'),
-          this.destinationPath('LICENSE')
+          this.destinationPath('LICENSE'), {
+            author: this.props.author,
+            email: this.props.email
+          }
       );
-      this.fs.copy(
+      this.fs.copyTpl(
           this.templatePath('README.md'),
-          this.destinationPath('README.md')
+          this.destinationPath('README.md'), {
+              name: this.props.name,
+              author: this.props.author,
+              license: this.props.license,
+              name_capitalize: this.props.name_capitalize,
+              description: this.props.description
+          }
       );
     },
 
     // Copy the application files
     app: function () {
-      this.fs.copy(
+      this.fs.copyTpl(
           this.templatePath('app/index.js'),
-          this.destinationPath('app/index.js')
+          this.destinationPath('app/index.js'), {
+              name: this.props.name,
+              version: this.props.version,
+              author: this.props.author,
+              email: this.props.email,
+              name_capitalize: this.props.name_capitalize
+          }
       );
     }
   },
@@ -132,6 +162,8 @@ module.exports = generators.Base.extend({
   // Install dependencies
   install: function () {
     this.installDependencies();
+    
+    console.log("Use " + chalk.yellow("node app teo-node") + " to run this application\n\n");
   }
 
 });
