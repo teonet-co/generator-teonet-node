@@ -68,6 +68,9 @@ Update repositories database:
 
     yo teonet-node
   
+## Run generated application
+
+    node . teo-node-app
 
 <hr>
 
