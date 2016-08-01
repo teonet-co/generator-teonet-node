@@ -43,7 +43,7 @@ module.exports = generators.Base.extend({
         type: 'input',
         name: 'name',
         message: 'What would you love to name this project?',
-        default: this.appname
+        default: 'teonode' //this.appname
     },
     {
         type: 'input',
@@ -118,17 +118,17 @@ module.exports = generators.Base.extend({
             license: this.props.license
         }
       ); 
-      this.fs.copyTpl(
-        this.templatePath('_bower.json'),
-        this.destinationPath('bower.json'), {
-            name: this.props.name,
-            version: this.props.version,
-            description: this.props.description,
-            author: this.props.author,
-            email: this.props.email,
-            license: this.props.license
-        }
-      ); 
+//      this.fs.copyTpl(
+//        this.templatePath('bower.json'),
+//        this.destinationPath('bower.json'), {
+//            name: this.props.name,
+//            version: this.props.version,
+//            description: this.props.description,
+//            author: this.props.author,
+//            email: this.props.email,
+//            license: this.props.license
+//        }
+//      ); 
       this.fs.copyTpl(
           this.templatePath('LICENSE'),
           this.destinationPath('LICENSE'), {
@@ -165,7 +165,9 @@ module.exports = generators.Base.extend({
 
   // Install dependencies
   install: function () {
-    this.installDependencies();
+      
+    //this.installDependencies();
+    this.npmInstall();
     
     console.log("Use " + chalk.yellow("node app teo-node") + " to run this application\n\n");
   }

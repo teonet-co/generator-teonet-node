@@ -5,7 +5,7 @@
     "<%= author %> <<%= email %>>"
   ],
   "description": "<%= description %>",
-  "main": "",
+  "main": "./app/index.js",
   "license": "<%= license %>",
   "homepage": "",
   "ignore": [
