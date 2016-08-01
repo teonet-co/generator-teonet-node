@@ -107,7 +107,7 @@ module.exports = generators.Base.extend({
     config: function () {
         
       this.fs.copyTpl(
-        this.templatePath('package.json'),
+        this.templatePath('_package.json'),
         this.destinationPath('package.json'), {
             name: this.props.name,
             version: this.props.version,
@@ -118,26 +118,26 @@ module.exports = generators.Base.extend({
             license: this.props.license
         }
       ); 
-//      this.fs.copyTpl(
-//        this.templatePath('bower.json'),
-//        this.destinationPath('bower.json'), {
-//            name: this.props.name,
-//            version: this.props.version,
-//            description: this.props.description,
-//            author: this.props.author,
-//            email: this.props.email,
-//            license: this.props.license
-//        }
-//      ); 
       this.fs.copyTpl(
-          this.templatePath('LICENSE'),
+        this.templatePath('_bower.json'),
+        this.destinationPath('bower.json'), {
+            name: this.props.name,
+            version: this.props.version,
+            description: this.props.description,
+            author: this.props.author,
+            email: this.props.email,
+            license: this.props.license
+        }
+      ); 
+      this.fs.copyTpl(
+          this.templatePath('_LICENSE'),
           this.destinationPath('LICENSE'), {
             author: this.props.author,
             email: this.props.email
           }
       );
       this.fs.copyTpl(
-          this.templatePath('README.md'),
+          this.templatePath('_README.md'),
           this.destinationPath('README.md'), {
               name: this.props.name,
               author: this.props.author,
@@ -151,7 +151,7 @@ module.exports = generators.Base.extend({
     // Copy the application files
     app: function () {
       this.fs.copyTpl(
-          this.templatePath('app/index.js'),
+          this.templatePath('_app/_index.js'),
           this.destinationPath('app/index.js'), {
               name: this.props.name,
               version: this.props.version,
