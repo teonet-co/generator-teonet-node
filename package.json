@@ -1,6 +1,6 @@
 {
   "name": "generator-teonet-node",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Teonet node application",
   "main": "./app/index.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "test": "mocha"
   },
   "files": [
-    "generators"
+    "generators/app"
   ],
   "dependencies": {
     "yeoman-generator": "^0.24.1",
