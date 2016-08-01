@@ -119,10 +119,14 @@ module.exports = generators.Base.extend({
         }
       ); 
       this.fs.copyTpl(
-        this.templatePath('bower.json'),
+        this.templatePath('_bower.json'),
         this.destinationPath('bower.json'), {
             name: this.props.name,
-            version: this.props.version
+            version: this.props.version,
+            description: this.props.description,
+            author: this.props.author,
+            email: this.props.email,
+            license: this.props.license
         }
       ); 
       this.fs.copyTpl(
