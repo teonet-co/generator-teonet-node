@@ -7,6 +7,10 @@ commands for the Debian, Ubuntu or Linux Mint.
 
 ## Dependences
 
+Set packages which are considered essential for building Debian packages:
+
+    sudo apt-get install build-essential
+
 The is node based project so you should have node installed. Upgrade node to latest version:
 
     sudo apt-get install -y npm
