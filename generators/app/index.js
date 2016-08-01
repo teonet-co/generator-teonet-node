@@ -23,55 +23,114 @@
  */
 
 'use strict';
+
 var generators = require('yeoman-generator');
+var yosay = require('yosay');
+var chalk = require('chalk');
 
 module.exports = generators.Base.extend({
+    
+  prompting: function () {
+      
+    var done = this.async();
 
-  method1: function () {
-    console.log('Method 1 just ran');
-  },
-  method2: function () {
-    console.log('Method 2 just ran');
-  },
+    // Have Yeoman greet the user.
+    this.log(yosay(
+        'This is the awesome and amazing ' + chalk.red('TEONET-NODE') + ' generator!'
+    ));
+    
+    //Get array of inputs from the user
+    var prompts = [
+    {
+        type: 'input',
+        name: 'name',
+        message: 'What would you love to name this project?',
+        default: this.appname
+    },
+    {
+        type: 'input',
+        name: 'version',
+        message: 'This project version',
+        default: "0.0.1"
+    },
+    {
+        type: 'input',
+        name: 'description',
+        message: 'Please describe the project',
+        default: "Teonet node application"
+    },
+    {
+        type: 'input',
+        name: 'repository',
+        message: 'What is the project\'s repository?',
+        default: "No repository yet"
+    },
+    {
+        type: 'input',
+        name: 'license',
+        message: 'How would you love to license the project?',
+        default: "MIT"
+    }];
 
-  // Copy the confuguration files
-  config: function () {
-  	console.log('Copy the confuguration files');     
-    this.fs.copyTpl(
-		this.templatePath('package.json'),
-		this.destinationPath('package.json'), {
-//		    name: this.props.name,
-//		    description: this.props.description,
-//		    repository: this.props.repository,
-//			    license: this.props.license,
-		}
-    ); 
-    this.fs.copyTpl(
-		this.templatePath('bower.json'),
-		this.destinationPath('bower.json')
-    ); 
-    this.fs.copy(
-        this.templatePath('LICENSE'),
-        this.destinationPath('LICENSE')
-    );
-    this.fs.copy(
-        this.templatePath('README.md'),
-        this.destinationPath('README.md')
-    );
-  },
+    this.prompt(prompts, function (props) {
+        
+        this.props = props;
+        // To access props later use this.props.name;
 
-  // Copy the application files
-  app: function () {
-    console.log('Copy the application files');
-    this.fs.copy(
-        this.templatePath('app/index.js'),
-        this.destinationPath('app/index.js')
-    );
+        done();
+    }.bind(this));
+    
+  },
+  
+//  method1: function () {
+//    console.log('Method 1 just ran');
+//  },
+//  method2: function () {
+//    console.log('Method 2 just ran');
+//  },
+
+
+  writing: {  
+      
+    // Copy the confuguration files
+    config: function () {
+
+      //console.log('Copy the confuguration files');     
+      this.fs.copyTpl(
+          this.templatePath('package.json'),
+          this.destinationPath('package.json'), {
+              name: "teonet-node", //this.props.name,
+              version: "", //this.props.version,
+              description: "", //this.props.description,
+              repository: "", //this.props.repository,
+              license: "" //this.props.license
+          }
+      ); 
+      this.fs.copyTpl(
+                  this.templatePath('bower.json'),
+                  this.destinationPath('bower.json')
+      ); 
+      this.fs.copy(
+          this.templatePath('LICENSE'),
+          this.destinationPath('LICENSE')
+      );
+      this.fs.copy(
+          this.templatePath('README.md'),
+          this.destinationPath('README.md')
+      );
+    },
+
+    // Copy the application files
+    app: function () {
+      this.fs.copy(
+          this.templatePath('app/index.js'),
+          this.destinationPath('app/index.js')
+      );
+    }
   },
 
   // Install dependencies
   install: function () {
-	console.log('Install dependencies');
     this.installDependencies();
   }
 

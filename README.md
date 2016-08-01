@@ -9,11 +9,11 @@ commands for the Debian, Ubuntu or Linux Mint.
 
 Set packages which are considered essential for building Debian packages:
 
-    sudo apt-get install build-essential
+    sudo apt-get install -y build-essential
 
 The is node based project so you should have node installed. Upgrade node to latest version:
 
-    sudo apt-get install -y npm
+    sudo apt-get install -y npm curl
 
     sudo npm cache clean -f
     sudo npm install -g n
