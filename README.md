@@ -25,7 +25,8 @@ To install global npm components without sudo change node modules folders owners
 
     sudo chown -R $USER /usr/local/lib/node_modules
 
-Install the Yeoman and bower:
+
+### Install the Yeoman and bower:
 
     npm install -g yo bower
 
@@ -50,13 +51,9 @@ https://www.npmjs.com/package/generator-teonet#install-teonet-library
 
 <hr>
 
-## *Developer Notes
+## Developer Notes
 
 ### Some teonet documentation
-
-#### Install teonet library under Linux
-
-Some additional info to install [Teonet library from repository](https://gitlab.ksproject.org/teonet/teonet/blob/master/README.md#install-from-repositories-notes) readme file
 
 
 #### Teonet developer documentation:  
@@ -66,8 +63,7 @@ http://repo.ksproject.org/docs/teonet/
 #### Teonet events:  
 http://repo.ksproject.org/docs/teonet/ev__mgr_8h.html#ad7b9bff24cb809ad64c305b3ec3a21fe
 
-
-### Publish project to NPM
+#### Publish project to NPM
 
 If you haven't already set your NPM author info, now you should:
 
@@ -80,6 +76,7 @@ If you haven't already set your NPM author info, now you should:
 Publish project to NPM:
 
     npm publish ./
+
 
 ## Getting To Know Yeoman
 
