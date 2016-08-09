@@ -47,7 +47,7 @@ https://www.npmjs.com/package/generator-teonet#install-teonet-library
   
 ## Run generated application
 
-    node . teo-node-app
+    node . teo-APPNAME
 
 <hr>
 
