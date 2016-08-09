@@ -53,15 +53,14 @@ https://www.npmjs.com/package/generator-teonet#install-teonet-library
 
 ## Developer Notes
 
-### Some teonet documentation
-
-
-#### Teonet developer documentation:  
+### Some Teonet documentation
+  
+Teonet developer documentation:  
 http://repo.ksproject.org/docs/teonet/
-
-
-#### Teonet events:  
+  
+Teonet events:  
 http://repo.ksproject.org/docs/teonet/ev__mgr_8h.html#ad7b9bff24cb809ad64c305b3ec3a21fe
+
 
 #### Publish project to NPM
 
