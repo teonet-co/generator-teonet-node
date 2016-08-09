@@ -7,6 +7,8 @@ commands for the Debian, Ubuntu or Linux Mint.
 
 ## Dependences
 
+### Install NodeJS and Build Essential
+
 Set packages which are considered essential for building Debian packages:
 
     sudo apt-get install -y build-essential
@@ -27,38 +29,12 @@ Install the Yeoman and bower:
 
     npm install -g yo bower
 
+
 ### Install teonet library
 
-### Ubuntu
+https://www.npmjs.com/package/generator-teonet#install-teonet-library
 
-    http://repo.ksproject.org/ubuntu/
 
-#### Add repository
-
-Add repository key:  
-
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8CC88F3BE7D6113C
-    
-Add repository:    
-
-    sudo apt-get install -y software-properties-common
-    sudo add-apt-repository "deb http://repo.ksproject.org/ubuntu/ teonet main"
-    
-or add the following line to your /etc/apt/sources.list:  
-
-    deb http://repo.ksproject.org/ubuntu/ teonet main
-    
-Update repositories database:    
-    
-    sudo apt-get update
-
-#### Install library
-
-    sudo apt-get install -y libteonet-dev
-
-#### Check installation
-
-    teovpn -?
 
 ## Install this generator
 
