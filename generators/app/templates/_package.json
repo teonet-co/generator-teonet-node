@@ -11,7 +11,6 @@
     "url": "<%= repository %>"
   },
   "keywords": [
-    "yeoman-generator",
     "teonet",
     "network"
   ],
@@ -19,7 +18,7 @@
     "generators"
   ],
   "dependencies": {
-    "teonet": "^0.0.3"
+    "teonet": "^0.0.40"
   },
   "devDependencies": {
     "mocha": "*"

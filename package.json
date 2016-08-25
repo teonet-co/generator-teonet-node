@@ -1,6 +1,6 @@
 {
   "name": "generator-teonet-node",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "Teonet server node application generator",
   "main": "./app/index.js",
   "scripts": {
@@ -24,11 +24,11 @@
   "dependencies": {
     "yeoman-generator": "^0.24.1",
     "yosay": "^1.2.0",
-    "chalk": "^1.1.3",
-    "teonet": "^0.0.3"
+    "chalk": "^1.1.3"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "teonet": "^0.0.40"
   },
   "author": "Kirill Scherba <kirill@scherba.ru>",
   "license": "MIT"
