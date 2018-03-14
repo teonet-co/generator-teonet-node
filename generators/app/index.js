@@ -29,21 +29,27 @@ var yosay = require('yosay');
 var chalk = require('chalk');
 
 module.exports = generators.Base.extend({
-    
+
   prompting: function () {
-      
+  
     // Have Yeoman greet the user.
     this.log(yosay(
         'This is the awesome and amazing ' + chalk.red('TEONET-NODE') + ' generator!'
     ));
-    
-    //Get array of inputs from the user
+
+    // Get array of inputs from the user
     var prompts = [
     {
         type: 'input',
         name: 'name',
         message: 'What would you love to name this project?',
         default: 'teonode' //this.appname
+    },
+    {
+        type: 'input',
+        name: 'peer',
+        message: 'This application Teonet peer name',
+        default: 'teo-node' 
     },
     {
         type: 'input',
@@ -102,10 +108,10 @@ module.exports = generators.Base.extend({
   },
   
   writing: {  
-      
+  
     // Copy the confuguration files
     config: function () {
-        
+
       this.fs.copyTpl(
         this.templatePath('_package.json'),
         this.destinationPath('package.json'), {
@@ -160,15 +166,29 @@ module.exports = generators.Base.extend({
               name_capitalize: this.props.name_capitalize
           }
       );
+    },
+
+    // Copy the application files
+    app: function () {
+      this.fs.copyTpl(
+          this.templatePath('_docker/_Dockerfile.js'),
+          this.destinationPath('docker/Dockerfile'), {
+              name: this.props.name,
+              version: this.props.version,
+              author: this.props.author,
+              email: this.props.email,
+              name_capitalize: this.props.name_capitalize
+          }
+      );
     }
   },
 
   // Install dependencies
   install: function () {
-      
+  
     //this.installDependencies();
     this.npmInstall();
-    
+
     console.log("Use " + chalk.yellow("node app teo-node") + " to run this application\n\n");
   }
 

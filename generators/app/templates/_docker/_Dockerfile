@@ -1,0 +1,27 @@
+# Teonet <%= name %> Dockerfile
+
+FROM node
+MAINTAINER <%= author %> <<%= email %>>
+
+# Add Teonet repository and Install Teonet
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8CC88F3BE7D6113C && \
+    printf "\ndeb http://repo.ksproject.org/ubuntu/ teonet main\n" >> /etc/apt/sources.list && \
+    apt-get update && apt-get upgrade -y && apt-get install -y libteonet-dev && ldconfig
+
+# Copy project
+ADD . /root/Projects/<%= name %>
+
+# Set work folder and Install npm dependencies
+WORKDIR /root/Projects/<%= name %>
+RUN npm i
+
+# Default command
+CMD ["node",".","<%= peer %>"]
+
+# Build
+# cd $HOME/Projects/<%= name %>
+# docker build -t <%= name %> -f docker/Dockerfile .
+#
+# Run watcher as an example
+# docker run -it --rm --name <%= name %>  <%= name %> node . <%= peer %>
+# docker run -it --rm --name <%= name %> -v $HOME/.<%= name %>:/root/.node <%= name %> node . <%= peer %>
