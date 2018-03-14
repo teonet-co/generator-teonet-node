@@ -93,7 +93,7 @@ module.exports = generators.Base.extend({
     }];
 
     return this.prompt(prompts).then(function (props) {
-        
+
         function capitalize(string) {
           return string.charAt(0).toUpperCase() + string.slice(1);
         };
@@ -104,11 +104,11 @@ module.exports = generators.Base.extend({
         // To access props later use this.props.name;
 
     }.bind(this));
-    
+
   },
-  
-  writing: {  
-  
+
+  writing: {
+
     // Copy the confuguration files
     config: function () {
 
@@ -163,21 +163,23 @@ module.exports = generators.Base.extend({
               version: this.props.version,
               author: this.props.author,
               email: this.props.email,
-              name_capitalize: this.props.name_capitalize
+              name_capitalize: this.props.name_capitalize,
+              peer: this.props.peer
           }
       );
     },
 
     // Copy the application files
-    app: function () {
+    docker: function () {
       this.fs.copyTpl(
-          this.templatePath('_docker/_Dockerfile.js'),
+          this.templatePath('_docker/_Dockerfile'),
           this.destinationPath('docker/Dockerfile'), {
               name: this.props.name,
               version: this.props.version,
               author: this.props.author,
               email: this.props.email,
-              name_capitalize: this.props.name_capitalize
+              name_capitalize: this.props.name_capitalize,
+              peer: this.props.peer
           }
       );
     }

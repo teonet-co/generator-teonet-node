@@ -80,12 +80,12 @@ function teoEventCb(ke, ev, data, data_len, user_data) {
 
             delete peers[rd.from];
             break;
-            
-        // EV_K_TIMER #9 Timer event, seted by ksnetEvMgrSetCustomTimer   
+
+        // EV_K_TIMER #9 Timer event, seted by ksnetEvMgrSetCustomTimer
         case teonet.ev.EV_K_TIMER:
             break;
 
-        // EV_K_RECEIVED #5 This host Received a data    
+        // EV_K_RECEIVED #5 This host Received a data
         case teonet.ev.EV_K_RECEIVED:
             rd = new teonet.packetData(data);
 
@@ -123,7 +123,7 @@ function teo_main() {
     var ke = teonet.init(teoEventCb, 3);
 
     // Set application type
-    teonet.setAppType(ke, "<%= name %>");
+    teonet.setAppType(ke, "<%= peer %>");
 
     // Set application version
     teonet.setAppVersion(ke, '<%= version %>');
@@ -132,7 +132,7 @@ function teo_main() {
     teonet.setCustomTimer(ke, 5.000);
 
     // Start teonet
-    teonet.run(ke);
+    teonet.run(ke, () => console.log('Bye!'));
 
     // Show exit message
     console.log("<%= name_capitalize %> application initialization finished ...");
