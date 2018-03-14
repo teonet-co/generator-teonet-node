@@ -59,7 +59,7 @@ Update repositories database:
 
 The <%= license %> license
 
-Copyright (c) 2016, <%= author %>
+Copyright (c) 2018, <%= author %>
 
 
 ## *Developer Notes

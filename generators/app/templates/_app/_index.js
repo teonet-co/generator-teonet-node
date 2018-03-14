@@ -1,7 +1,7 @@
 /* 
  * The MIT License
  *
- * Copyright 2016 <%= author %> <<%= email %>>.
+ * Copyright 2018 <%= author %> <<%= email %>>.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -101,12 +101,12 @@ function teoEventCb(ke, ev, data, data_len, user_data) {
             break;
 
         // EV_K_USER #11 User press A hotkey
-        case teonet.ev.EV_K_USER:            
+        case teonet.ev.EV_K_USER:
             break;
 
         case teonet.ev.EV_K_STOPPED:
             break;
-            
+
         default:
             break;
     }

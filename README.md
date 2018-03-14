@@ -43,11 +43,13 @@ https://www.npmjs.com/package/generator-teonet#install-teonet-library
 
 ## Generate new teonet-node application
 
+    mkdir teonode
+    cd teonode
     yo teonet-node
   
 ## Run generated application
 
-    node . teo-APPNAME
+    node . teo-node
 
 <hr>
 
