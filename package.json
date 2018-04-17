@@ -1,6 +1,6 @@
 {
   "name": "generator-teonet-node",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "description": "Teonet server node application generator",
   "main": "./app/index.js",
   "scripts": {
@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "mocha": "*",
-    "teonet": "^0.0.41"
+    "teonet": "^0.0.51"
   },
   "author": "Kirill Scherba <kirill@scherba.ru>",
   "license": "MIT"
